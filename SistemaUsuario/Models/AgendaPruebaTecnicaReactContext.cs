@@ -16,7 +16,7 @@ namespace SistemaUsuario.Models
         {
         }
 
-        public virtual DbSet<Agendum> Agenda { get; set; } = null!;
+        public virtual DbSet<Agenda> Agenda { get; set; } = null!;
         public virtual DbSet<Persona> Personas { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
@@ -27,7 +27,7 @@ namespace SistemaUsuario.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Agendum>(entity =>
+            modelBuilder.Entity<Agenda>(entity =>
             {
                 entity.HasKey(e => e.IdAgenda)
                     .HasName("PK__Agenda__61ED01614E90385E");

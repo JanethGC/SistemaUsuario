@@ -20,6 +20,8 @@ namespace SistemaUsuario.Controllers
             _dbcontext = context;
         }
 
+        
+
         [HttpGet]
         [Route("ListarPersonas")]
         public IActionResult ListarPersonas()

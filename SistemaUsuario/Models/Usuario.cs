@@ -7,7 +7,7 @@ namespace SistemaUsuario.Models
     {
         public Usuario()
         {
-            Agenda = new HashSet<Agendum>();
+            Agenda = new HashSet<Agenda>();
         }
 
         public int IdUsuario { get; set; }
@@ -16,6 +16,6 @@ namespace SistemaUsuario.Models
         public int IdPersona { get; set; }
 
         public virtual Persona IdPersonaNavigation { get; set; } = null!;
-        public virtual ICollection<Agendum> Agenda { get; set; }
+        public virtual ICollection<Agenda> Agenda { get; set; }
     }
 }

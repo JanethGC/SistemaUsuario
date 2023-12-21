@@ -16,6 +16,40 @@ namespace SistemaUsuario.Controllers
         }
 
         [HttpGet]
+        [Route("Login/{usuario}/{pass}")]
+        public IActionResult Login(string usuario, string pass)
+        {
+            try
+            {
+                var query = from u in _dbcontext.Usuarios
+                            where u.NombreUsuario == usuario
+                                && u.Contraseña == pass
+                            select new Usuario
+                            {
+                                IdUsuario = u.IdUsuario
+                            };
+
+                var usuarioEncontrado = query.FirstOrDefault();
+
+                if (usuarioEncontrado == null)
+                {
+                    return BadRequest("Usuario o contraseña incorrectos.");
+                }
+
+                var contactos = query.ToList();
+
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "ok", response = "SuccessLogin" });
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Ocurrió un error durante el inicio de sesión.");
+            }
+        }
+
+
+
+        [HttpGet]
         [Route("ListarUsuarios")]
         public IActionResult ListarUsuarios()
         {

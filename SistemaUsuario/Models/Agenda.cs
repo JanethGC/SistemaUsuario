@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SistemaUsuario.Models
 {
-    public partial class Agendum
+    public partial class Agenda
     {
         public int IdAgenda { get; set; }
         public int IdUsuario { get; set; }
